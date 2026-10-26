@@ -44,19 +44,26 @@
 
   <h2>2. Information that is collected</h2>
 
-  <h3>2.1 Sign-in information from Google</h3>
-  <p>Some Services let you sign in with your Google account instead of creating a separate
-  password. When you do, Google shares the following with the Service:</p>
+  <h3>2.1 Google account data (only if you connect a Google account)</h3>
+  <p>Google is not used to sign in to the Services and is never required. It is only involved
+  when you deliberately connect your own Google account inside one of the self-hosted tools the
+  operator runs — for example Home Assistant (Google Drive backups, Google Calendar, Google Nest,
+  Google Assistant) or an n8n automation you built that uses a Google node. Nothing is connected
+  unless you do it yourself.</p>
+  <p>When you connect an account, Google shares the following with that tool:</p>
   <ul>
     <li>your Google account identifier (a numeric ID that is stable per application),</li>
     <li>your name and, if present, your profile picture URL,</li>
-    <li>your email address and whether Google has verified it.</li>
+    <li>your email address and whether Google has verified it,</li>
+    <li>the OAuth access and refresh tokens for the permissions you approved.</li>
   </ul>
-  <p>Some Services may ask for additional Google permissions (for example access to files or
-  calendar data). Only the permissions shown on the Google consent screen at the moment you
-  approve are requested, and only the ones that Service actually needs to work. You can review
-  and revoke everything at any time on the
-  <a href="https://myaccount.google.com/permissions">Google permissions page</a>.</p>
+  <p>The specific Google permissions (scopes) requested are the ones shown on Google's consent
+  screen at the moment you approve, and they belong to the one feature or workflow you are
+  setting up — for example permission to create files in your Drive, or to read your calendars.
+  No other permission is requested, and approving one feature does not grant any other. You can
+  review and revoke every grant at any time on the
+  <a href="https://myaccount.google.com/permissions">Google permissions page</a>, or by
+  disconnecting the integration inside the tool itself.</p>
 
   <h3>2.2 Content you put into the Services</h3>
   <p>Whatever you create, upload or configure inside a Service (for example media files,
@@ -71,6 +78,7 @@
   <h2>3. How the information is used</h2>
   <ul>
     <li>to authenticate you and keep you signed in;</li>
+    <li>to run the Google feature or automation you connected your own account to, and only that;</li>
     <li>to display your account and your content to you;</li>
     <li>to operate, secure, debug and back up the Services;</li>
     <li>to contact you if something is wrong with your account or the Services.</li>
@@ -79,8 +87,9 @@
   credit scoring, or for training machine-learning models, and it is not sold or rented.</p>
 
   <h2>4. Google user data</h2>
-  <p>Where the Services receive information from Google APIs, the operator's use and transfer of
-  that information adheres to the
+  <p>Where the Services receive information from Google APIs — for example when you connect your
+  own Google account to a Home Assistant integration or to an n8n workflow — the operator's use and
+  transfer of that information adheres to the
   <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
   User Data Policy</a>, including its Limited Use requirements. Concretely:</p>
   <ul>

@@ -1,7 +1,10 @@
 # Home Hariki — app home page, privacy policy, terms
 
 Public, login-free site for **Home Hariki**, the private Home Assistant instance operated by
-Victor Seiji Hariki. It exists to satisfy the Google Cloud OAuth branding requirements for
+Victor Seiji Hariki. The same Google OAuth application (`home-hariki`) is also the private
+integration used by his other self-hosted tools (n8n workflows and similar) — Google is only
+ever involved when a user connects their *own* Google account to an optional feature inside one
+of those tools. Google is never used to sign in. It exists to satisfy the Google Cloud OAuth branding requirements for
 project `home-hariki`: a public app home page that displays the app name and logo and links to a
 privacy policy and terms of service on the same domain.
 

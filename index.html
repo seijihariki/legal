@@ -32,32 +32,54 @@
     <p class="lede"><strong>Home Hariki</strong> — a private, self-hosted home automation instance
     operated by Victor Seiji Hariki and shared with family and friends.</p>
     <p class="cta-row">
-      <a class="btn" href="https://hassio.seijihariki.com/">Sign in to Home Hariki</a>
+      <a class="btn" href="https://hassio.seijihariki.com/">Open Home Hariki</a>
     </p>
-    <p class="fine">An account is required: access is by invitation only.</p>
+    <p class="fine">Sign-in uses your own Home Assistant account, not Google. Access is by
+    invitation, and Google is entirely optional.</p>
   </section>
 
   <h2>What this is</h2>
   <p>Home Hariki runs <a href="https://www.home-assistant.io/">Home Assistant</a> on privately
   owned hardware in the operator's home. It brings lights, climate, media players, cameras and
-  sensors from the house together in one dashboard, plus a few small self-hosted tools. It exists
-  so that the household and a handful of friends can control and monitor their own home from a
-  phone or a browser.</p>
+  sensors from the house together in one dashboard, next to a small self-hosted automation server
+  and a few other tools. It exists so that the household and a handful of friends can control and
+  monitor their own home from a phone or a browser.</p>
   <p>It is a personal project, not a product: there is no company behind it, no advertising, no
   subscription, and no data business of any kind.</p>
 
-  <h2>Signing in with Google</h2>
-  <p>Sign-in is provided by the application itself. Where "Sign in with Google" is offered, the
-  only information received from Google is what the consent screen lists — normally your
-  <strong>name, email address and profile picture</strong>. That information is used solely to
-  create your account and show you your own dashboard.</p>
+  <h2>Accounts and Google</h2>
+  <p>You sign in to Home Hariki with your own <strong>Home Assistant account</strong> — a username
+  and password created by the household operator. <strong>Google is never used to sign in</strong>
+  and is never required to use the house.</p>
+
+  <h3>Optional Google integrations</h3>
+  <p>This site is also the public home of the <strong>private Google integration</strong> used by
+  the self-hosted software the operator runs for the household — Home Assistant, the
+  <a href="https://n8n.io/">n8n</a> automation server, and similar tools added later. Google is
+  only ever involved when <em>you</em> connect <em>your own</em> Google account from inside one of
+  those tools, to switch on a feature you want. Skipping it changes nothing else.</p>
   <ul>
-    <li>No sensitive or restricted Google scopes are requested (no Gmail, Drive, Calendar,
-    Contacts or Photos access).</li>
-    <li>Google account data is never sold, rented, shared with advertisers, or used to train
-    machine-learning models.</li>
-    <li>You can revoke access at any time on the
-    <a href="https://myaccount.google.com/permissions">Google permissions page</a>.</li>
+    <li><strong>Home Assistant</strong> — Google Drive for backups, Google Calendar as dashboard
+    entities, Google Nest thermostats and cameras, Google Assistant voice control.</li>
+    <li><strong>n8n</strong> — automations that you build yourself and that read or write your own
+    Drive files, Sheets, Calendar events or mail.</li>
+    <li><strong>Other self-hosted tools</strong> — same rule: you connect your account, on purpose,
+    from inside the tool that needs it.</li>
+  </ul>
+  <p>Every integration is separate and has to be connected by you. When you connect one, Google
+  shows its consent screen and you approve the specific permissions that feature needs — nothing
+  more is requested, and nothing is requested for anything you did not set up.</p>
+
+  <h3>What happens to that data</h3>
+  <ul>
+    <li>The tokens Google issues are stored on the operator's own server and used only to run the
+    feature or workflow you connected.</li>
+    <li>Your content stays in your own Google account wherever the feature allows it — backups,
+    for example, are written to your Drive, not copied anywhere else.</li>
+    <li>Nothing is sold, shared with advertisers or other users, or used to train machine-learning
+    models.</li>
+    <li>You can disconnect an integration in the tool that uses it at any time, or revoke the app
+    on the <a href="https://myaccount.google.com/permissions">Google permissions page</a>.</li>
   </ul>
   <p>Full details are in the <a href="privacy.html">Privacy Policy</a>.</p>
 
