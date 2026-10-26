@@ -5,9 +5,9 @@
   --bg: #ffffff;
   --card: #f6f7f9;
   --line: #e2e4e9;
-  --accent: #2b6cb0;
+  --accent: #12724a;
   --btn-fg: #ffffff;
-  --btn-bg: #2b6cb0;
+  --btn-bg: #12724a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,9 +17,9 @@
     --bg: #16181c;
     --card: #1e2126;
     --line: #2c3037;
-    --accent: #7cb0e8;
-    --btn-fg: #0d1117;
-    --btn-bg: #7cb0e8;
+    --accent: #6fd7a2;
+    --btn-fg: #06231a;
+    --btn-bg: #6fd7a2;
   }
 }
 
