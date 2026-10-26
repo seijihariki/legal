@@ -3,35 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Legal — seijihariki apps</title>
-<meta name="description" content="Privacy policy and terms of service for the personal apps and services operated by Victor Seiji Hariki.">
+<title>Home Assistant — Home Hariki</title>
+<meta name="description" content="Home Hariki: a private, self-hosted Home Assistant instance operated by Victor Seiji Hariki for family and friends. Sign-in, privacy policy and terms of service.">
+<meta property="og:site_name" content="Home Assistant">
+<meta property="og:title" content="Home Assistant — Home Hariki">
+<meta property="og:description" content="Private, self-hosted home automation for family and friends.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site"><a href="./">seijihariki apps · legal</a></header>
+<header class="bar">
+  <a class="brand" href="./">
+    <img src="logo.png" alt="Home Assistant logo" width="34" height="34">
+    <span>Home Assistant</span>
+  </a>
+  <nav class="bar-nav">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</header>
+
 <main>
-  <h1>Legal</h1>
-  <p class="updated">Last updated: 26 October 2026</p>
+  <section class="hero">
+    <img class="hero-logo" src="logo.png" alt="Home Assistant app logo" width="112" height="112">
+    <h1>Home Assistant</h1>
+    <p class="lede"><strong>Home Hariki</strong> — a private, self-hosted home automation instance
+    operated by Victor Seiji Hariki and shared with family and friends.</p>
+    <p class="cta-row">
+      <a class="btn" href="https://hassio.seijihariki.com/">Sign in to Home Hariki</a>
+    </p>
+    <p class="fine">An account is required: access is by invitation only.</p>
+  </section>
 
-  <p>These are the policies for the personal, self-hosted applications and services I
-  (Victor Seiji Hariki) run for myself, my family and my friends. They are not commercial
-  products: there is no company behind them, no advertising and no data business.</p>
+  <h2>What this is</h2>
+  <p>Home Hariki runs <a href="https://www.home-assistant.io/">Home Assistant</a> on privately
+  owned hardware in the operator's home. It brings lights, climate, media players, cameras and
+  sensors from the house together in one dashboard, plus a few small self-hosted tools. It exists
+  so that the household and a handful of friends can control and monitor their own home from a
+  phone or a browser.</p>
+  <p>It is a personal project, not a product: there is no company behind it, no advertising, no
+  subscription, and no data business of any kind.</p>
 
-  <div class="card">
-    <p>For the Google Cloud <strong>OAuth consent screen</strong>:</p>
-    <ul>
-      <li>Application privacy policy: <a href="privacy.html">privacy.html</a></li>
-      <li>Terms of service: <a href="terms.html">terms.html</a></li>
-    </ul>
+  <h2>Signing in with Google</h2>
+  <p>Sign-in is provided by the application itself. Where "Sign in with Google" is offered, the
+  only information received from Google is what the consent screen lists — normally your
+  <strong>name, email address and profile picture</strong>. That information is used solely to
+  create your account and show you your own dashboard.</p>
+  <ul>
+    <li>No sensitive or restricted Google scopes are requested (no Gmail, Drive, Calendar,
+    Contacts or Photos access).</li>
+    <li>Google account data is never sold, rented, shared with advertisers, or used to train
+    machine-learning models.</li>
+    <li>You can revoke access at any time on the
+    <a href="https://myaccount.google.com/permissions">Google permissions page</a>.</li>
+  </ul>
+  <p>Full details are in the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2>Policies</h2>
+  <div class="doc-links">
+    <a href="privacy.html">
+      <strong>Privacy Policy</strong>
+      <span>What is collected, how it is used and stored, and how to have it deleted.</span>
+    </a>
+    <a href="terms.html">
+      <strong>Terms of Service</strong>
+      <span>Acceptable use, availability, warranty and liability for a hobby service.</span>
+    </a>
   </div>
 
-  <nav class="docs">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </nav>
+  <h2>Contact</h2>
+  <p>Victor Seiji Hariki — <a href="mailto:victorseijih@gmail.com">victorseijih@gmail.com</a>.
+  Questions about access, your account, or anything on this page can go to that address.</p>
 </main>
+
 <footer class="site">
-  Operated by Victor Seiji Hariki · <a href="mailto:victorseijih@gmail.com">victorseijih@gmail.com</a>
+  <p>Operated by Victor Seiji Hariki as a personal project · <a href="mailto:victorseijih@gmail.com">victorseijih@gmail.com</a></p>
+  <p class="fine">This instance is not affiliated with, endorsed by or sponsored by Google LLC or
+  Nabu Casa, Inc. "Home Assistant" refers to the open-source software it runs.</p>
 </footer>
 </body>
 </html>
