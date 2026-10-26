@@ -10,11 +10,25 @@ Victor Seiji Hariki. Served with GitHub Pages.
 
 ## Public URLs
 
+Canonical (custom domain via Cloudflare DNS-only CNAME → `seijihariki.github.io`):
+
+```
+https://legal.seijihariki.com/
+https://legal.seijihariki.com/privacy.html
+https://legal.seijihariki.com/terms.html
+```
+
+GitHub default hostnames still work as an alias:
+
 ```
 https://seijihariki.github.io/legal/
 https://seijihariki.github.io/legal/privacy.html
 https://seijihariki.github.io/legal/terms.html
 ```
+
+The `CNAME` file pins the custom domain. DNS: Cloudflare zone `seijihariki.com`,
+`legal` CNAME → `seijihariki.github.io`, **DNS only** (not proxied) so GitHub Pages
+terminates TLS with its own Let's Encrypt certificate.
 
 ## Editing
 
