@@ -8,8 +8,10 @@ deliberately not a copy of any third-party mark.
 Everything is drawn from signed distance fields, so the edges are analytically
 anti-aliased at any size (no supersampling).
 
-Writes logo.png (512x512), logo-120.png (120x120 — the size Google Cloud wants on
-the OAuth consent screen) and favicon.png (64x64).
+Writes, with an alpha channel (so the tile's corners are transparent):
+logo.png (512x512), logo-120.png (120x120), favicon.png (64x64) and
+logo-120-solid.png (120x120, fully opaque square — the safest file to upload to the
+Google OAuth consent screen, which shows the logo on a white card).
 """
 import math
 import struct
@@ -50,9 +52,9 @@ def blend(dst, colour, alpha):
     return tuple(dst[i] * (1 - alpha) + colour[i] * alpha for i in range(3))
 
 
-def render(size):
+def render(size, solid=False):
     px = 1.0 / size                      # one pixel in normalised units
-    half = TILE_RADIUS
+    radius = 0.0 if solid else TILE_RADIUS
     rows = []
     for iy in range(size):
         y = (iy + 0.5) / size
@@ -60,10 +62,10 @@ def render(size):
         for ix in range(size):
             x = (ix + 0.5) / size
             # tile
-            d_tile = sd_round_rect(x, y, 0.5, 0.5, 0.5, 0.5, TILE_RADIUS)
+            d_tile = sd_round_rect(x, y, 0.5, 0.5, 0.5, 0.5, radius)
             a_tile = coverage(d_tile, px)
             if a_tile <= 0.0:
-                row.append((0, 0, 0))
+                row.append((0, 0, 0, 0))
                 continue
             t = 0.5 * (x + y)
             bg = tuple(TILE_TOP[i] + (TILE_BOTTOM[i] - TILE_TOP[i]) * t for i in range(3))
@@ -81,7 +83,9 @@ def render(size):
                 c = coverage(math.hypot(x - hx, y - hy) - hr, px)
                 if c > 0.0:
                     col = blend(col, hcol, c)
-            row.append(tuple(int(round(v * a_tile)) for v in col))
+            row.append(
+                (int(round(col[0])), int(round(col[1])), int(round(col[2])), int(round(255 * a_tile)))
+            )
         rows.append(row)
     return size, size, rows
 
@@ -90,8 +94,8 @@ def write_png(path, w, h, rows):
     raw = bytearray()
     for row in rows:
         raw.append(0)
-        for r, g, b in row:
-            raw += bytes((r, g, b))
+        for r, g, b, a in row:
+            raw += bytes((r, g, b, a))
 
     def chunk(tag, data):
         return (
@@ -102,7 +106,7 @@ def write_png(path, w, h, rows):
         )
 
     png = b"\x89PNG\r\n\x1a\n"
-    png += chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0))
+    png += chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 6, 0, 0, 0))  # colour type 6 = RGBA
     png += chunk(b"IDAT", zlib.compress(bytes(raw), 9))
     png += chunk(b"IEND", b"")
     with open(path, "wb") as fh:
@@ -112,5 +116,10 @@ def write_png(path, w, h, rows):
 
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else "."
-    for name, size in (("logo.png", 512), ("logo-120.png", 120), ("favicon.png", 64)):
-        write_png(f"{out}/{name}", *render(size))
+    for name, size, solid in (
+        ("logo.png", 512, False),
+        ("logo-120.png", 120, False),
+        ("favicon.png", 64, False),
+        ("logo-120-solid.png", 120, True),
+    ):
+        write_png(f"{out}/{name}", *render(size, solid))
